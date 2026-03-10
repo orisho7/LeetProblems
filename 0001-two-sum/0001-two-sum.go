@@ -1,28 +1,14 @@
 func twoSum(nums []int, target int) []int {
+	seen := make(map[int]int)
+
 	for index, value := range nums {
-		wanted := target
-		if index == len(nums)-1 {
-			break
-		}
-
-		sum := value + nums[index+1]
-
-		if sum == wanted {
-			return []int{index, index + 1}
+		needed := target - value
+		val, ok := seen[needed]
+		if ok {
+			return []int{index, val}
 		} else {
-
-			for j := index + 1; j < len(nums); j++ {
-				if index == len(nums)-1 {
-					break
-				}
-				sum := value + nums[j]
-				if sum == wanted {
-					return []int{index, j}
-				}
-
-			}
+			seen[value] = index
 		}
 	}
 	return []int{}
-
 }
