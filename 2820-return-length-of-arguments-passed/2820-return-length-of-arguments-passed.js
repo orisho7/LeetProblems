@@ -2,8 +2,10 @@
  * @param {...(null|boolean|number|string|Array|Object)} args
  * @return {number}
  */
+ args = [5]
 var argumentsLength = function(...args) {
-    return arguments.length
+    return args.length
+    
 };
 
 /**
